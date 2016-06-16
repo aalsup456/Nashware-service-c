@@ -38,7 +38,7 @@ namespace TNG.NashWare.Services.Handler
             ClientContext context = new ClientContext(HOST);
             SharePointOnlineCredentials creds = new SharePointOnlineCredentials(Username, Password);
             context.Credentials = creds;
-            
+
             Uri sharepointuri = new Uri(HOST);
             string authCookie = creds.GetAuthenticationCookie(sharepointuri);
 
@@ -104,10 +104,11 @@ namespace TNG.NashWare.Services.Handler
             var profile = GetProfileInfo();
             returnToken.nw_LoginName = profile.LoginName;
             returnToken.nw_DisplayName = profile.DisplayName;
+
             returnToken.nw_Email = profile.Email;
 
-            CheckExistingEmployee(profile);
-
+            //CheckExistingEmployee(profile);
+            returnToken.nw_Id = getEmployeeId(profile);
             return returnToken;
         }
 
@@ -123,18 +124,46 @@ namespace TNG.NashWare.Services.Handler
                 dbController.ConnectionCheck();
                 var query = string.Format("BEGIN " +
                             "IF NOT EXISTS (SELECT * FROM EMP_EMPLOYEES  " +
-                                    "WHERE EMP_LOGIN_NAME = '{0}' " +
-                                    "AND EMP_EMAIL = '{1}') " +
-                                "BEGIN " +
-                                    "INSERT INTO EMP_EMPLOYEES (EMP_LOGIN_NAME, EMP_DISPLAY_NAME, EMP_EMAIL, EMP_TITLE, EMP_DEPARTMENT) " +
+                                    //"WHERE EMP_LOGIN_NAME = '{0}' " +
+                                    "WHERE EMP_EMAIL_ADDRESS = '{0}') " +
+                                /*"BEGIN " +
+                                    "INSERT INTO EMP_EMPLOYEES (EMP_LOGIN_NAME, EMP_DISPLAY_NAME, EMP_EMAIL_ADDRESS, EMP_TITLE, EMP_DEPARTMENT) " +
                                     "VALUES ('{0}','{2}','{1}','{3}','{4}') " +
-                                "END " +
-                            "END", model.LoginName, model.Email, model.DisplayName, model.JobTitle, model.Department);
+                                "END " +*/
+                            " END ", /*model.LoginName,*/ model.Email/*, model.DisplayName, model.JobTitle, model.Department*/);
                 using (SqlCommand com = new SqlCommand(query, dbController.connection))
                 {
                     com.ExecuteNonQuery();
                 }
             }
+        }
+
+        public string getEmployeeId(Microsoft.SharePoint.Client.Utilities.PrincipalInfo model)
+        {
+            string Id = null;
+            var dbController = new DBHandler();
+            using (dbController.connection)
+            {
+                dbController.ConnectionCheck();
+                var query = string.Format(
+                            "SELECT EMP_ID FROM EMP_EMPLOYEES  " +
+                                    "WHERE EMP_EMAIL_ADDRESS = '{0}' ",
+                                 model.Email);
+                using (SqlCommand com = new SqlCommand(query, dbController.connection))
+                {
+                    com.ExecuteNonQuery();
+                    using (SqlDataReader dr = com.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            //Id = dr[0].ToString();
+                            Id = dr["EMP_ID"].ToString();
+                        }
+                    }
+                }
+            }
+            return Id;
+
         }
 
         /// <summary>

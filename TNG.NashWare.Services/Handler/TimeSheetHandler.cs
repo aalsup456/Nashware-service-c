@@ -63,10 +63,11 @@ namespace TNG.NashWare.Services.Handler
                     {
                         var tempClient = new ClientViewModel();
                         tempClient.Name = reader["CL_NAME"].ToString();
-                        tempClient.Id = new Guid(reader["CL_ID"].ToString());
+                        //tempClient.Id = new Guid(reader["CL_ID"].ToString().ToUpper());
+                        tempClient.Id = reader["CL_ID"].ToString().ToUpper();
                         if (DBNull.Value != reader["CL_QB_ID"])
-                            tempClient.QBId = Convert.ToInt64(reader["CL_QB_ID"]);
-                        tempClient.isActive = (int)reader["CL_IS_ACTIVE"];
+                            tempClient.QBId = Convert.ToInt64(reader["CL_QB_ID"].ToString());//Convert.ToInt64(reader["CL_QB_ID"]);
+                        tempClient.isActive = reader["CL_IS_ACTIVE"].ToString();
 
                         toReturn.Add(tempClient);
                     }
@@ -92,16 +93,18 @@ namespace TNG.NashWare.Services.Handler
                 {
                     using (SqlDataReader reader = com.ExecuteReader())
                     {
-                        if (reader.Read())
+                        while (reader.Read())
                         {
                             var tempProject = new ProjectViewModel();
                             tempProject.Name = reader["PRJ_NAME"].ToString();
-                            tempProject.Id = new Guid(reader["PRJ_ID"].ToString());
-                            tempProject.isActive = (int)reader["PRJ_IS_ACTIVE"];
+                            //tempProject.Id = new Guid(reader["PRJ_ID"].ToString().ToUpper());
+                            tempProject.Id = reader["PRJ_ID"].ToString().ToUpper();
+                            tempProject.isActive = reader["PRJ_IS_ACTIVE"].ToString();//(int)reader["PRJ_IS_ACTIVE"];
                             tempProject.Description = reader["PRJ_DESCRIPTION"].ToString();
-                            tempProject.ClientID = Convert.ToInt64(reader["PRJ_CL_ID"]);
-                            if (DBNull.Value != reader["PRJ_ENDDATE"])
-                                tempProject.EndDate = Convert.ToDateTime(reader["PRJ_ENDDATE"]);
+                            //tempProject.ClientID = new Guid(reader["PRJ_CL_ID"].ToString()); //Convert.ToInt64(reader["PRJ_CL_ID"]);
+                            tempProject.ClientID = reader["PRJ_CL_ID"].ToString(); //Convert.ToInt64(reader["PRJ_CL_ID"]);
+                            if (DBNull.Value != reader["PRJ_END_DATE"])
+                                tempProject.EndDate = Convert.ToDateTime(reader["PRJ_END_DATE"]);
 
                             toReturn.Add(tempProject);
                         }
@@ -130,10 +133,11 @@ namespace TNG.NashWare.Services.Handler
                     {
                         var tempWC = new WorkClassViewModel();
                         tempWC.Name = reader["WC_NAME"].ToString();
-                        tempWC.Id = new Guid(reader["WC_ID"].ToString());
+                        //tempWC.Id = new Guid(reader["WC_ID"].ToString());
+                        tempWC.Id = reader["WC_ID"].ToString();
                         if (DBNull.Value != reader["WC_QB_ID"])
                             tempWC.QBId = Convert.ToInt64(reader["WC_QB_ID"]);
-                        tempWC.isActive = (int)reader["WC_IS_ACTIVE"];
+                        tempWC.isActive = reader["WC_IS_ACTIVE"].ToString();//(int)reader["WC_IS_ACTIVE"];
 
                         toReturn.Add(tempWC);
                     }
@@ -162,10 +166,11 @@ namespace TNG.NashWare.Services.Handler
                     {
                         var tempService = new ServiceTypeViewModel();
                         tempService.Name = reader["SRV_NAME"].ToString();
-                        tempService.Id = new Guid(reader["SRV_ID"].ToString());
-                        if(DBNull.Value!= reader["SRV_QB_ID"])
+                        //tempService.Id = new Guid(reader["SRV_ID"].ToString().ToUpper());
+                        tempService.Id = reader["SRV_ID"].ToString().ToUpper();
+                        if (DBNull.Value!= reader["SRV_QB_ID"])
                             tempService.QBId = Convert.ToInt64(reader["SRV_QB_ID"]);
-                        tempService.isActive = (int)reader["SRV_IS_ACTIVE"];
+                        tempService.isActive = reader["SRV_IS_ACTIVE"].ToString();//(int)reader["SRV_IS_ACTIVE"];
                         if (DBNull.Value != reader["SRV_PARENTREF_QB_ID"])
                         {
                             tempService.HierachyType = 1;
@@ -175,10 +180,10 @@ namespace TNG.NashWare.Services.Handler
                             if (!parentList.Keys.Contains(parentQBID))
                             {
                                 parentList.Add(parentQBID, new List<Guid>());
-                                parentList[parentQBID].Add(tempService.Id);
+                                parentList[parentQBID].Add(new Guid(tempService.Id));
                             } else
                             {
-                                parentList[parentQBID].Add(tempService.Id);
+                                parentList[parentQBID].Add(new Guid(tempService.Id));
                             }
                         }
 
@@ -192,7 +197,7 @@ namespace TNG.NashWare.Services.Handler
                 parent.HierachyType = 2;
                 foreach(var child in parentList[parent.QBId])
                 {
-                    var childObj = toReturn.Single(p => p.Id == child);
+                    var childObj = toReturn.Single(p => new Guid(p.Id) == child);
                     childObj.ParentID = parent.Id;
                 }
             }

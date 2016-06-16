@@ -103,10 +103,10 @@ namespace TNG.NashWare.Services.Handler
                 var isactive = client.Active ? 1 : 0;
 
                 var query = string.Format("INSERT INTO CL_CLIENTS (" +
-                    "CL_NAME, CL_QB_ID, CL_BILLING_ADDRESS_LINE1, CL_BILLING_ADDRESS_LINE2, " +
-                    "CL_BILLING_COUNTRY_SUBDIVCODE, CL_BILLING_CITY, CL_BILLING_STATE, CL_BILLING_POSTAL_CODE, " +
-                    "CL_EMAIL, CL_PHONE, CL_CONTACT_NAME, CL_CONTACT_EMAIL, CL_CONTACT_PHONE, CL_IS_ACTIVE) VALUES (" +
-                    "'{0}',{1},'{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}',{13});",
+                    "CL_NAME, CL_QB_ID, CL_BILLING_ADDRESS_1, CL_BILLING_ADDRESS_2, " +
+                    "CL_BILLING_COUNTRY_SUBDIVCODE, CL_BILLING_CITY, CL_BILLING_STATE, CL_BILLING_ZIP, " +
+                    "CL_EMAIL, CL_PHONE, CL_BILLING_CONTACT_NAME, CL_BILLING_CONTACT_EMAIL, CL_BILLING_CONTACT_PHONE, CL_IS_ACTIVE, CL_CC_ID) VALUES (" +
+                    "'{0}',{1},'{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}',{13}, 'Z');",
                     clientName, id, line1, line2, subdiv, city, state, zip, email, phone, contactname, contact_email, contact_phone, isactive);
 
                 queryList += query;
@@ -316,18 +316,18 @@ namespace TNG.NashWare.Services.Handler
                         var tempClient = new ClientModel();
                         tempClient.Name = reader["CL_NAME"].ToString();
                         tempClient.Id = new Guid(reader["CL_ID"].ToString());
-                        if (DBNull.Value != reader["CL_BILLING_ADDRESS_LINE1"])
-                            tempClient.AddressLine1 = reader["CL_BILLING_ADDRESS_LINE1"].ToString();
-                        if(DBNull.Value!= reader["CL_BILLING_ADDRESS_LINE2"])
-                        tempClient.AddressLine2 = reader["CL_BILLING_ADDRESS_LINE2"].ToString();
+                        if (DBNull.Value != reader["CL_BILLING_ADDRESS_1"])
+                            tempClient.AddressLine1 = reader["CL_BILLING_ADDRESS_1"].ToString();
+                        if(DBNull.Value!= reader["CL_BILLING_ADDRESS_2"])
+                        tempClient.AddressLine2 = reader["CL_BILLING_ADDRESS_2"].ToString();
                         if (DBNull.Value != reader["CL_BILLING_STATE"])
                             tempClient.State = reader["CL_BILLING_STATE"].ToString();
                         if (DBNull.Value != reader["CL_BILLING_CITY"])
                             tempClient.City = reader["CL_BILLING_CITY"].ToString();
-                        if (DBNull.Value != reader["CL_BILLING_POSTAL_CODE"])
-                            tempClient.PostalCode = reader["CL_BILLING_POSTAL_CODE"].ToString();
-                        if (DBNull.Value != reader["CL_EMAIL"])
-                            tempClient.Email = reader["CL_EMAIL"].ToString();
+                        if (DBNull.Value != reader["CL_BILLING_ZIP"])
+                            tempClient.PostalCode = reader["CL_BILLING_ZIP"].ToString();
+                        if (DBNull.Value != reader["CL_BILLING_CONTACT_EMAIL"])
+                            tempClient.Email = reader["CL_BILLING_CONTACT_EMAIL"].ToString();
                         if (DBNull.Value != reader["CL_PHONE"])
                             tempClient.Phone = reader["CL_PHONE"].ToString();
                         tempClient.isActive = (int)reader["CL_IS_ACTIVE"];

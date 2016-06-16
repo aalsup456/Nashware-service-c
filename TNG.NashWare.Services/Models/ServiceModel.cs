@@ -7,7 +7,8 @@ namespace TNG.NashWare.Services.Models
 {
     public class SPTokenModel
     {
-        public string nw_LoginName { get; set; }
+        public string nw_Id { get; set; }
+        public string nw_LoginName { get; set; } 
         public string nw_DisplayName { get; set; }
         public string nw_Email { get; set; }        
         public string nw_SPOIDCRL { get; set; }

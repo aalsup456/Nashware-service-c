@@ -49,52 +49,56 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Intuit.Ipp.Core, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.1.0\lib\Intuit.Ipp.Core.dll</HintPath>
+      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.5.0\lib\Intuit.Ipp.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Intuit.Ipp.Data, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.1.0\lib\Intuit.Ipp.Data.dll</HintPath>
+      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.5.0\lib\Intuit.Ipp.Data.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Intuit.Ipp.DataService, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.1.0\lib\Intuit.Ipp.DataService.dll</HintPath>
+      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.5.0\lib\Intuit.Ipp.DataService.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Intuit.Ipp.Diagnostics, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.1.0\lib\Intuit.Ipp.Diagnostics.dll</HintPath>
+      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.5.0\lib\Intuit.Ipp.Diagnostics.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Intuit.Ipp.Exception, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.1.0\lib\Intuit.Ipp.Exception.dll</HintPath>
+      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.5.0\lib\Intuit.Ipp.Exception.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Intuit.Ipp.GlobalTaxService, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.5.0\lib\Intuit.Ipp.GlobalTaxService.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Intuit.Ipp.LinqExtender, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.1.0\lib\Intuit.Ipp.LinqExtender.dll</HintPath>
+      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.5.0\lib\Intuit.Ipp.LinqExtender.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Intuit.Ipp.PlatformService, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.1.0\lib\Intuit.Ipp.PlatformService.dll</HintPath>
+      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.5.0\lib\Intuit.Ipp.PlatformService.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Intuit.Ipp.QueryFilter, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.1.0\lib\Intuit.Ipp.QueryFilter.dll</HintPath>
+      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.5.0\lib\Intuit.Ipp.QueryFilter.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Intuit.Ipp.ReportService, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.1.0\lib\Intuit.Ipp.ReportService.dll</HintPath>
+      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.5.0\lib\Intuit.Ipp.ReportService.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Intuit.Ipp.Retry, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.1.0\lib\Intuit.Ipp.Retry.dll</HintPath>
+      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.5.0\lib\Intuit.Ipp.Retry.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Intuit.Ipp.Security, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.1.0\lib\Intuit.Ipp.Security.dll</HintPath>
+      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.5.0\lib\Intuit.Ipp.Security.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Intuit.Ipp.Utility, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.1.0\lib\Intuit.Ipp.Utility.dll</HintPath>
+      <HintPath>..\packages\IppDotNetSdkForQuickBooksApiV3.2.5.0\lib\Intuit.Ipp.Utility.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="JWT, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\JWT.1.3.2\lib\3.5\JWT.dll</HintPath>
@@ -133,8 +137,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.SharePoint.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SharePoint.Client, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -278,6 +282,11 @@
     <Compile Include="Models\ServiceViewModel.cs" />
     <Compile Include="Models\Utilities\Utility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -313,6 +322,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\localhost.pubxml" />
+    <None Include="Properties\PublishProfiles\teamtng10.pubxml" />
     <None Include="Properties\PublishProfiles\tng01.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -347,6 +357,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

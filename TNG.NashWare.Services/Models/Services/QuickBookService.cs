@@ -36,7 +36,7 @@ namespace TNG.NashWare.Services.Models.Services
             {
                 dbController.ConnectionCheck();
                 var query = string.Format("SELECT * FROM QBO_QUICKBOOK_OAUTH WHERE QBO_EMP_ID = " +
-                                "(SELECT EMP_ID FROM EMP_EMPLOYEES WHERE EMP_EMAIL = '{0}')", Email);
+                                "(SELECT EMP_ID FROM EMP_EMPLOYEES WHERE EMP_EMAIL_ADDRESS = '{0}')", Email);
                 using (SqlCommand com = new SqlCommand(query, dbController.connection))
                 {
                     using (SqlDataReader reader = com.ExecuteReader())
@@ -61,6 +61,7 @@ namespace TNG.NashWare.Services.Models.Services
             //serviceContext.IppConfiguration.BaseUrl.Qbo = "https://sandbox-quickbooks.api.intuit.com/";
 
             dataService = new DataService(serviceContext);
+            
         }
     }
 }
